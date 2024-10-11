@@ -2,48 +2,58 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb}
 \usepackage{geometry}
+\usepackage{pdfpages}
 \usepackage{lipsum} % Pour insérer du texte exemple (à remplacer par votre contenu)
 
 \geometry{a4paper}
 
 % Couverture
-\title{Résumé du cours d'Anneaux et Modules}
-\author{Lounes Boubekir}
+\title{Résumé du cours Anneaux et Modules}
 \date{\today}
-
 \begin{document}
-
+\includepdf[pages=1, fitpaper=true]{src/cover.pdf}
 \maketitle
-
-% Avant propos
-\chapter*{Avant propos}
-
-Ce document est un résumé non officiel du cours d'Anneaux et Modules. Il est rédigé à des fins pédagogiques et pourrait contenir des erreurs ou des imprécisions. En aucun cas, il ne remplace le cours original dispensé par votre enseignant.
-
-Nous vous recommandons vivement de vous référer au cours officiel et aux manuels recommandés pour toute clarification.
-
-\vfill
-\textit{Bonne lecture !}
-
+\tableofcontents 
 \newpage
 
-% Table des matières
-\tableofcontents
-\newpage
+\section{ Généralités sur les Modules}
 
-% Chapitres (Exemple de contenu, à remplacer par votre propre résumé)
-\chapter{Introduction aux anneaux}
-\section{Définition et exemples}
-\lipsum[1-2] % Texte exemple
-\section{Propriétés des anneaux}
-\lipsum[3-4] % Texte exemple
+\subsection*{Définition}
+Soit \( R \) un anneau (non nécessairement commutatif), un \textbf{\( R \)-module} est un groupe abélien \( (M, +) \) muni d'une loi externe \( R \times M \to M \) qui à chaque \( (r, m) \in R \times M \) associe un élément \( r \cdot m \in M \), vérifiant les propriétés suivantes :
+\begin{enumerate}
+    \item \textbf{Distributivité} : \( r \cdot (m_1 + m_2) = r \cdot m_1 + r \cdot m_2 \), pour tout \( r \in R \) et \( m_1, m_2 \in M \),
+    \item \textbf{Compatibilité avec la multiplication dans \( R \)} : \( (r_1 + r_2) \cdot m = r_1 \cdot m + r_2 \cdot m \), pour tout \( r_1, r_2 \in R \) et \( m \in M \),
+    \item \textbf{Associativité} : \( r_1 \cdot (r_2 \cdot m) = (r_1 r_2) \cdot m \), pour tout \( r_1, r_2 \in R \) et \( m \in M \),
+    \item \textbf{Neutre} : \( 1_R \cdot m = m \), pour tout \( m \in M \), où \( 1_R \) est l'élément neutre de l'anneau \( R \).
+\end{enumerate}
 
-\chapter{Modules sur un anneau}
-\section{Définitions et exemples}
-\lipsum[5-6] % Texte exemple
-\section{Sous-modules et morphismes}
-\lipsum[7-8] % Texte exemple
+\subsection*{Exemples de Modules}
+\begin{itemize}
+    \item Si \( R \) est un anneau commutatif, alors un \( R \)-module est un module sur \( R \), comme un \( \mathbb{Z} \)-module qui est simplement un groupe abélien.
+    \item Un espace vectoriel \( V \) sur un corps \( K \) est un \( K \)-module.
+    \item L'anneau \( R \) est lui-même un module sur \( R \) avec la multiplication interne définissant l'action.
+\end{itemize}
 
-% Ajoutez d'autres chapitres et sections selon vos besoins.
+\subsection*{Homomorphismes de Modules}
+Soient \( M \) et \( N \) deux \( R \)-modules. Une application \( f : M \to N \) est un \textbf{homomorphisme de \( R \)-modules} si, pour tout \( r \in R \) et \( m, m' \in M \), les propriétés suivantes sont satisfaites :
+\begin{enumerate}
+    \item \( f(m + m') = f(m) + f(m') \) (homomorphisme de groupes),
+    \item \( f(r \cdot m) = r \cdot f(m) \) (compatibilité avec l'action de \( R \)).
+\end{enumerate}
+
+L'ensemble des homomorphismes de \( M \) vers \( N \) est noté \( \mathrm{Hom}_R(M, N) \).
+
+\subsection*{Sous-modules}
+Un sous-ensemble \( N \subset M \) est un \textbf{sous-module} de \( M \) si :
+\begin{itemize}
+    \item \( (N, +) \) est un sous-groupe de \( M \),
+    \item Pour tout \( r \in R \) et \( n \in N \), on a \( r \cdot n \in N \) (stabilité par multiplication externe).
+\end{itemize}
+
+\subsection*{Modules Libres}
+Un module \( M \) est dit \textbf{libre} s'il existe un ensemble \( \{m_i\}_{i \in I} \subset M \) tel que chaque élément de \( M \) puisse s'écrire de manière unique comme une combinaison linéaire finie d'éléments de \( \{m_i\}_{i \in I} \) avec des coefficients dans \( R \).
+
+\subsection*{Modules de Type Fini}
+Un \( R \)-module \( M \) est \textbf{de type fini} s'il existe un ensemble fini de générateurs de \( M \), c'est-à-dire s'il existe un ensemble fini \( \{m_1, m_2, \dots, m_n\} \subset M \) tel que tout élément de \( M \) puisse s'écrire comme une combinaison linéaire de ces éléments.
 
 \end{document}
